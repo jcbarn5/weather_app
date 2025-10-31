@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "Forecasts", type: :request do
-
   # Mock the WeatherService class itself
   let(:weather_service) { instance_double(WeatherService) }
 

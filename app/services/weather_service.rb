@@ -83,7 +83,7 @@ class WeatherService
       today_low: data.daily.first.temp.min.round,
       extended_forecast: data.daily.drop(1).map do |day|
         {
-          date: day.dt.strftime('%A, %b %d'),
+          date: day.dt.strftime("%A, %b %d"),
           high: day.temp.max.round,
           low: day.temp.min.round,
           conditions: day.weather.first.description.titleize
