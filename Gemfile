@@ -63,4 +63,15 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "rails-controller-testing"
+  gem 'rspec-rails'
 end
+
+group :development, :test do
+  gem 'open-weather-ruby-client'
+  gem 'geocoder'
+  gem 'byebug'
+end
+
+
+gem 'certifi'

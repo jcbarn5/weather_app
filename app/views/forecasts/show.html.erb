@@ -1,0 +1,47 @@
+<h1>Weather for <%= @address %></h1>
+
+<% if @forecast %>
+
+  <h2>Current Weather</h2>
+  <p>
+    <strong>Temperature:</strong> <%= @forecast[:current_temp] %>°F
+  </p>
+  <p>
+    <strong>Conditions:</strong> <%= @forecast[:current_conditions] %>
+  </p>
+  <p>
+    <strong>Today's High:</strong> <%= @forecast[:today_high] %>°F /
+    <strong>Low:</strong> <%= @forecast[:today_low] %>°F
+  </p>
+
+  <hr>
+
+  <h2>Extended Forecast</h2>
+  <table style="width: 50%; border-collapse: collapse;">
+    <thead>
+    <tr style="text-align: left;">
+      <th style="padding: 8px; border-bottom: 1px solid #ddd;">Day</th>
+      <th style="padding: 8px; border-bottom: 1px solid #ddd;">Conditions</th>
+      <th style="padding: 8px; border-bottom: 1px solid #ddd;">High / Low</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @forecast[:extended_forecast].each do |day| %>
+      <tr style="border-bottom: 1px solid #eee;">
+        <td style="padding: 8px;"><%= day[:date] %></td>
+        <td style="padding: 8px;"><%= day[:conditions] %></td>
+        <td style="padding: 8px;"><%= day[:high] %>° / <%= day[:low] %>°F</td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+<% else %>
+  <p>
+    Sorry, we could not retrieve the forecast for that address.
+    Please check the address and try again.
+  </p>
+<% end %>
+
+<br>
+<%= link_to "Search Again", root_path %>
